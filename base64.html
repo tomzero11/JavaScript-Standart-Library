@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Base64
+        => Base64 merupakan binary to text Encoding, representasi binary data dalam format String
+        => Base64 merupakan format text data yang aman untuk dikirimkan di web
+        => Base64 merupakan Encoding yang biasanya digunakan ketika perlu mengirim data dari Client ke Server
+        => Karena Encoding Base64 merupakan Text, oleh karena itu sangat aman digunakan pada query param URL atau text body 
+            dalam form 
+        */ 
+        
+        /*
+            Ada 2 method di Base64
+        => btoa , digunakan untuk meng encode yang sudah di tetapkan oleh Base64
+        => atob, digunakan untuk men decode (mengembalikan ke aslinya)
+        */ 
+        // Karekter Encode base64 sudah di tetapkan oleh Base64
+
+        const name = "Maman Abdul Rahman"
+
+        const encoded = btoa(name)
+        console.log(encoded)
+
+        const decoded = atob(encoded)
+        console.log(decoded)
+
+    </script>
+</body>
+</html>

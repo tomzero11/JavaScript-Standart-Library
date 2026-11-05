@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Object
+        */ 
+
+        {
+            /*
+                Object Freeze & Seal 
+            => Secara Default Object bisa di ubah atau di hapus Properties nya
+            => Jika kita ingin mengubah sebuah Object menjadi Object yang tidak bisa di Rubah 
+                atau Di Hapus, Kita bisa menggunakan beberapa Static Method :
+                -> Object.freeze() digunakan Untuk membuat Suatu Object benar-benar tidak bisa dirubah Sama Sekali
+                -> Object.seak() digunakan untuk Mengunci Struktur Property nya tetapi masih mengizinkan untuk merubah Value di dalamnya
+            => Object.freeze() dan Object.seal() tidak bisa membuat Porperty baru di dalam nya. 
+            */ 
+
+            // Contoh Object Freeze
+            class Person {
+                constructor() {
+                    this.firstName = "Kurniawan"
+                    this.lastName = "Supratman"
+                    Object.freeze(this) // Property dan value nya tidak bisa di rubah
+                }
+            }
+            const kurniawan = new Person()
+            kurniawan.firstName = "Mamad" // Tidak Bisa Merubah Value dari Property fistName "Kurniawan" 
+            kurniawan.middleName = "Karnoto" // Tidak Bisa Menambah Property Di dalam Nya
+            console.log(kurniawan)
+
+            // Contoh Object Seal
+            class Names {
+                constructor() { 
+                    this.firstName = "Joko"
+                    this.lastName = "Superhero"
+                    Object.seal(this) // Hanya Mengunci Property tetapi masih bisa merubah value Property nya
+                }
+            }
+            const name = new Names()
+            name.firstName = "Junaidi" // Berhasil merubah value dari Property firstName menjadi "Junaidi"
+            name.middleName = "Bumi" // Tidak bisa menambah Property di dalam nya karena sudah di kunci 
+            console.log(name)
+        }
+
+
+        {
+            /*
+                Object Assign
+            => Kadang ada Kasus untuk Mengcopy semua Property dari sebuah Object ke Object lain
+            => Hal ini bisa dilakukan dengan menggunakan Object.assign(targert,source)
+            */
+            
+            // Contoh Object Assign
+            class Employee {
+                constructor(firstName, lastName) {
+                    this.firstName = firstName
+                    this.lastName = lastName
+                }
+            }
+
+            class Company {
+                constructor() {
+                    this.company = "PT.Suka Bumi Maju"
+                }
+            }
+            const company = new Company()
+            const employee = new Employee("Mamad" , "Kurniawan")
+            Object.assign(employee, company) // Mencopy isi dari Property dari Class Company ke Class Employee
+            console.log(employee)
+
+            // Contoh Ke 2
+            const dataName = {
+                firstName : "Mamad",
+                lastName : "Junaidi"
+            }
+
+            const companyName = {
+                company : "PT.Suka Suka Kita"
+            }
+            console.log(Object.assign(dataName, companyName))
+        }
+
+        {
+            /*
+                Object Property Name & Value
+            => Object juga memiliki Static Method digunakan untuk mengambil semua Property Name dan Value dari Property nya :
+                -> Object.getOwnPropertyNames() digunakan untuk mengambil semua property name
+                -> Object.value() digunakan untuk mengambil semua property isi Valye nya 
+            => Static Method 2 ini akan mengembalikan / return sebuah Array
+            */ 
+
+            // Contoh 
+            class DataProfile {
+                constructor(fistName, lastName) {
+                    this.firstName = fistName
+                    this.lastName = lastName
+                }
+            }
+
+            const mamadProfile = new DataProfile("mamad", "kertosono")
+            console.log(Object.getOwnPropertyNames(mamadProfile)) // Mengambil isi Property Name
+            console.log(Object.values(mamadProfile)) // Meganmbil isi value dari Property
+
+            const person = {
+                firstName : "Kurniawan",
+                lastName : "Merkurius"
+            }
+            console.log(Object.getOwnPropertyNames(person)) // Mengambil isi Property Name
+            console.log(Object.values(person)) // Meganmbil isi value dari Property
+        }
+
+
+    </script>
+</body>
+</html>

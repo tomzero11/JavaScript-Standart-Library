@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+</head>
+<body>
+    <script>
+    
+        /*
+            Number
+        => Number merupakan Function yang digunakan untuk melakukan Conversi ke type Data Number
+        */ 
+
+        // Contoh Penggunaan Function Number Untuk Conversi ke Data Number
+        const input = "12345"
+        const number = Number(input) // mengconversi ke type data Number
+
+        console.log(typeof input)
+        console.log(typeof number)
+        console.log(number)
+        console.log(Number("salah")) // String Abjad dia akan NaN karena bukan Number
+
+        /*
+            Static Properties
+        => Cara akses Number Static Method langsung Panggil Number nya tidak nama variable atau Object nya
+        => Static Properties adalah senuah Property yang dapat di akses tanpa membuat Object atau Variable nya
+        */ 
+        // Contoh Static Properties Yang Ada Di Number 
+        console.log(Number.MIN_VALUE) // Untuk melihat batas Mininal suatu Nilai di Interger
+        console.log(Number.MAX_VALUE) // Untuk melihat bata Maxsimal suatu nilai di Integer
+        console.log(Number.MIN_SAFE_INTEGER) // Ini yang paling di rekomendasikan untuk Nilai Maksimal suatu interger
+        console.log(Number.MAX_SAFE_INTEGER) // Ini yang paling di rekomendasikan untuk Nilai Maksimal suatu interger
+        console.log(Number.NaN) // Check Interger NaN atau Bukan 
+
+        
+        /* 
+            Number Static Method 
+        => Cara akses Number Static Method langsung Panggil Number nya tidak nama variable atau Object nya
+        => Number memiliki banyak Static Method seperto : 
+        => Number.isNaN(value) digunakan untuk mengecek apakah value nya NaN atau Bukan
+        => Number.isInteger(value) digunakan untuk mengecek apakah value berupa Integer atau Bukan
+        */ 
+        // Contoh Static Method 
+        const data = Number("12345")
+        console.log(Number.isInteger(data)) // ngecek type data di dalam variable Integer atau bukan
+        console.log(Number.isNaN(data))  // ngecek type data di dalam variable NaN atau bukan
+        console.log(Number.isFinite(data)) // Ngecek type data di dalam variable adalah bilangan terhinga (Range 0-10)
+        
+        /*
+            Number Instance Method 
+        => Cara Mengakases Harus dari Varibale atau Object atau Intance dari Number
+        => Number memiliki banyak Instance Method seperti : 
+        => Number.localString(local) Untuk mengubah number menjadi String sesuai Local 
+        => Number.toString(radix) digunakan untuk mengubah Number menjadi String Radix
+        */ 
+
+        // Contoh Instance Method 
+        const value = Number(12345)
+        console.log(value.toLocaleString("id-ID"))
+        console.log(value.toLocaleString("en-US"))
+    </script>
+</body>
+</html>

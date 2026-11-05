@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ncode</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Encode 
+        => Saat kita menulis URL kadang kita ingin menambahkan informasi tambahan seperty Query Parameter misal nya
+        => URL sendiri sudah memiliki Standart encoding penulisan URL 
+        => Standar Encoding ini dilakukan agar Menulis URL aman ketika di terima oleh server 
+        */ 
+
+        {
+            // Encode URL dan Decode URL
+            const url = "http://contoh.com/?name=Maman Adbul Rahman"
+            console.log(url)
+
+            const encodeed = encodeURI(url)
+            console.log(encodeed)
+            const decoded = decodeURI(url)
+            console.log(decoded)
+        }
+
+        {
+            const url = "http://contoh.com/?name="
+            const value = "Maman&Adbul=Rahman"
+            console.log(url)
+
+            const encodeed = encodeURIComponent(value)
+            console.log( url + encodeed)
+            const decoded = decodeURIComponent(encodeed)
+            console.log(url + decoded)
+        }
+
+
+    </script>
+</body>
+</html>

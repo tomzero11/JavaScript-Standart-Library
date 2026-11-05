@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Penjelasan Prototype
+        => Prototype dalam JavaScript adalah objek dasar yang menjadi  
+            sumber pewarisan sifat dan fungsi bagi objek lain
+        *
+
+        /*
+            Prototype
+        => JavaScript dikenal dengan dengan Pemrograman berbasis Prototype
+        => Saat kita membuat Instance Object dari Constructor Function, 
+            semua Property (baik itu value atau method), akan berada di dalam Instance Objectnya
+        => Setiap kita membuat sebuah Constructor Function, maka secara otomatis akan dibuatkan 
+            Prototype nya, misal ketika kita membuat Constructor Function Person, maka akan ada
+            Person.prototype
+        => Saat membuat Sebuah Instance Object, secara otomatis Instance Object tersebut adalah
+            turunan dari Constructor.prototype nya
+        => Untuk mengakses prototype milik sebuah Instance Object, kita bisa menggunakan __proto__
+        */
+        
+        // Saat kita membuat Constructor Function Secara otomasis akan di buatkan prototype nya
+        // Which is nama Proprotype nya yaitu Person.prototype
+        function Person(firstName, lastName) {
+            this.firstName = firstName
+            this.lastName  = lastName
+        }
+
+        /*
+            Menambah Property ke Prototype
+        => Property mirip seperti Object, dimana kita bisa menambah property baik itu value
+            ataupun method
+        => Saat kita menambah sebuah Property ke Prototype, secara otomatis semua Instance 
+            Object yang turunan dari prototype tersebut akan memiliki Property tersebut.
+        */
+
+
+        // cara  untuk menambah Property di Prototype Constructor Function Secara Langsung
+        // Secara otomatis semua Instance Object milik Person akan mewarisi Property di bawah ini
+        Person.prototype.sayHello = function(name) {
+            return `Hello ${this.firstName} ${this.lastName} ${name}`
+        }
+
+        // nama nya Instance Object dari sebuah Constructor Function
+        const eko = new Person("eko", "junaidi") // ini namanya Instance Object 
+        // Dan Secara tidak langsung Instance Object Eko turunan atau mewarisi dari Person.prototype
+    
+        console.log(eko)
+        console.log(eko.sayHello("Mamad")) // Pnaggil function sayHello Milik Constructor Function nya
+        
+
+        // nama nya Instance Object dari sebuah Constructor Function
+        const budi = new Person("Budi", "Kurniawan") // ini namanya Instance Object 
+        // Dan Secara tidak langsung Instance Object Budi turunan atau mewarisi dari Person.prototype
+        
+        // Menambah Property ke Instance Object nya saja 
+        // Constructor Function dan Instance Object yang lain Tidak akan memiliki Property ini.
+        // Property ini hanya milik Instance Object milik Budi
+        budi.sayGoodBye = function() {
+            return `Good Bye ${this.firstName} ${this.lastName}`
+        }
+        
+        console.log(budi)
+        console.log(budi.sayGoodBye())
+        
+
+        
+        /*
+            Constuctor Function dan Instance Object memiliki naam Property yang sama 
+        => Jika Case nya seperti itu maka yang di Check pertama kali milik Instance Object nya
+        => Jika Instance Object meliki Property Tersebut maka akan di keluarkan Property milik 
+            Instance Object tersebut
+        => Tetapi Jika Instance Object Tidak Meiliki Property tersebut maka akan di Check atau 
+            naik ke atas nya yaitu Constructor Function nya, jika di Check Constructor Function 
+            memiliki Property tersebut maka secara otomatis akan di ambil dari Constructor Function nya 
+        => Di Check lagi di atas sampai Yang Terakhir Yaitu : Prototype Object
+        => jika sampai akhir di Check tidak ada Property tersebut baru akan keluar pesan ERROR
+        */ 
+
+
+        // Contoh yang lain
+        function Names(firstname, lastName) {
+            this.firstName = firstname
+            this.lastName = lastName
+        }
+        // Menambah Property langsung di Constructor Funciton nya
+        Names.prototype.sayHai = function() {
+            return `Hai ${this.firstName} ${this.lastName}`
+        }
+
+        const mamad = new Names("Mamad", "Krisna")
+
+        // Menambah Property di Instance Object nya milik mamad
+        mamad.sayHai = function() {
+            return `Helooo My Friend`
+        }
+
+        console.log(mamad.sayHai())
+
+
+
+
+
+    </script>
+</body>
+</html>

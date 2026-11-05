@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        /*
+            Reflect
+        => Reflect merupakan Class yang digunakan untuk mengeksekusi JavaScript Function 
+        => Reflect tidak memiliki Constructor, dan cara penggunaan Reflect tidak dengan membuat Object
+            dengan new Reflect 
+        => Penggunaan Reflect adalah menggunakan banyak sekali Static Methodnya 
+        */ 
+
+        /*
+            Reflect biasa nya gabungan nya dengan Proxy, Jika menggunakan Proxy pasangan umum nya adalah Reflect 
+        */ 
+
+        const person = {}
+
+        Reflect.set(person, "firstName", "Jajang")
+        Reflect.set(person, "lastName", "Kurniawan")
+
+        console.log(person)
+        console.log(Reflect.has(person, "firstName")) // Ngecek apakah property ini ada atau tidak 
+        console.log(Reflect.has(person, "lastName")) // Ngecek apakah Property ini ada atau tidak
+        console.log(Reflect.has(person, "middleName")) // Ngecek apakah Property Ini ada atau tidak 
+
+
+    </script>
+
+</body>
+</html>

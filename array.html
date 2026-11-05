@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Intance Method</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Array
+        => Array adalah type data yang digunakan untuk menyimpan sekumpulan element atau value 
+            di dalam satu variable secara berurutan
+        */ 
+
+        /*
+            Array Loop
+        => Method ForEach digunakan untuk melakukan iterasi Data Array
+        => Di dalam perulangan ForEach di rancang Hanya bisa memiliki 3(tiga) parameter saja :
+            -> Parameter pertama : Selalu di isi Oleh Value atau Element Array
+            -> Parameter kedua   : Selalu di isi oleh Nomer Index Array (Urutan Value atau Element)
+            -> Parameter ketiga  : Selalu di isi seluruh data di dalam Array 
+        => Artinya memang ForEach di set Batas Parameter nya itu 3 jika lebih dari 3 maka value nya akan Undefined
+        */ 
+
+        {
+            // Contoh Array Loop For Each
+            const dataName = ["Mamad", "Junaidi", "Kaka", "Juned"]
+            // Batas Parameter di dalam ForEach 3 jika lebih dari 3 paramter maka 
+            dataName.forEach((value, index, array) => {
+                console.log(`${value} : ${index} ${array}`)
+            });
+        }
+
+        /*
+            Array Queue (Antrian)
+        => Dalam Struktur data, terdapat Type Struktur data bernama Queue (Atrian)
+        => Dimana data masuk akan diposisikan di urutan paling belakang
+        => Sedangkan data Keluar akan diposisikan Paling Depan
+        => Istilah Ini disebut FIFO (First In First Out) Artinya Siapa yang masuk duluan dia yang akan keluar lebih dulu
+        => Kita bisa menambahkan data data array menggunakan Function push(), dan akan di tempatkan di paling belakang
+        => Dan jika ingin menggambil dan mengghapus data Array Paling Depan Menggunakan Function shift()
+        */ 
+
+        {
+            // Contoh Queque (Atrina)
+            const queue = []
+            // Function push() untuk menambhakan value atau element array di tempatkan paling belakang
+            queue.push("Sheila on Seven")
+            queue.push("Kusnanda")
+            queue.push("Kotak")
+            queue.push("LastChild")
+            
+            // Function shift() untuk menggambil dan mengghapus value atau elemet array paling depan
+            console.log(queue.shift())  // Valuu "Sheila on Seven" di hapus dari Queue (Antrian)
+            console.log(queue.shift())  // Valuu "Kusnandar" di hapus dari Queue (Antrian)
+            console.log(queue)
+        }
+
+        /*
+            Array Stack (Tumpukan)
+        => Struktur data (Tumpukan) dimana aturan nya seperti Tumpukan Kartu
+        => Saat kita memasukkan data, kita akan memasukkan di urutan paling belakang (Atas)
+        => Sedangkan saat kita ingin mengambil data, kita akan menggambil data dari paling belakang
+            (atas) terlebih dahulu
+        => Istilah ini disebut LIFO (Last In First Out)
+        => Kita bisa menambahkan data data array menggunakan Function push(), dan akan di tempatkan di paling belakang
+        => Dan jika ingin dan mengghapus data Array Paling Belakang menggunakan Function pop()
+        */ 
+
+        {
+            // Contoh Stack (Tumpukan)
+            const stack = []
+            // Function push() untuk menambhakan value atau element array di tempatkan paling belakang
+            stack.push("Balmond")
+            stack.push("Layla")
+            stack.push("Saber")
+            stack.push("Ling")
+            
+            // Function pop() untuk menggambil dan mengghapus value atau elemet array paling belakang
+            console.log(stack.pop()) // Value "Ling" di ambil dan di hapus dari Stack (tumpukan)
+            console.log(stack.pop()) // Value "Saber" di ambil dan di hapus dari Stack (tumpukan)
+            console.log(stack)
+        }
+
+
+        /*
+            Array Seacrch
+            function                            Keterangan
+        => find(value => boolean) : return value            : Digunakan untuk Mencari data sesuai dengan Kondisi
+        => findIndex(value => boolean) : return Index       : Digunakan untuk mencari data Index sesuai Kondisi
+        => includes(value) : return boolean                 : Menvecek apakah di data Array ada Value tersebut
+        => indexOf(value) : return number                   ; Mengecek apakah data tersebut berada di index ke berapa, jika tidak ada hasil -1
+        => lastIndexOf(value) : return number               : Mengecek posisi index data yang terakhir 
+        */ 
+
+        {
+            // Contoh Array Seacrh
+            const number = [1,2,3,4,5,1,2,3,4,5]
+            console.log(number.find(value => value > 2)) // result 3 , return value bahwa 3 > 2
+            console.log(number.findIndex(value => value > 3)) // result Index ke-3 , karena kondisi 4 > 3 dan angka 4 berada di index ke-3
+            console.log(number.includes(1)) // apakah value ini ada di dalam data Array
+            console.log(number.indexOf(5)) // Mencari index dari value
+            console.log(number.lastIndexOf(5)) // Mencari index terakhir dari value (cari bagian terakhir)
+
+        }
+
+
+        /*
+            Array Filter
+        => Digunakan untuk melakukan Filter di Array
+        => Ketika menggunakan Array Filter dan Akan Menciptakan Array Baru
+        => Artinya Array asli tidak akan berubah 
+      
+        */ 
+
+        /*
+            Function Array Transform
+        => filter(value => booolean) : return Array
+        */ 
+
+        const dataNumber = [1,2,3,4,5,6,7,8,9,10]
+        console.log(dataNumber.filter(value => value % 2 === 1)) // menciptakan data array baru
+        console.log(dataNumber.filter(value => value % 2 === 0)) // menciptakan data array baru
+        console.log(dataNumber)
+
+        /*
+            Array Transform
+        => Array Transform digunakan untuk merubah data Array 
+        => Contoh yang awal nya isi element nya array "Mamad" dirubah menjadi "Kurniawan"
+        */ 
+
+        /*
+            Funtion Array Transoform
+            Function                                                    Ketarangan
+        => map (value => result) : Array <result>               :   Melakukan transform tiap value dan menghasilkan Array result
+        => reduce(resultBefore, value => result) : result       :   Melakukan transform dengan menggunakan value array dan value selanjutnya, lalu hasilnya dilanjutkan ke Itersi selanjut nya 
+        */ 
+
+        {   
+            // Dia akan menctiptakan String baru
+            // Contoh Array Transform
+            const names = "Mamad Abdul Rahman".split(" ")
+            console.log(names.map(value => value.toUpperCase())) // merubah nya menjadi Array dan karakter menjadi KAPITAL 
+            console.log(names.reduceRight((before, value) => before + " " + value)) // Hasil kebalik Rahman Abdul Mamad
+            
+            const numbers = [1,2,3,4,5]
+            console.log(numbers.reduce((before, value) => before + value)) // result 15
+
+            console.log(names) // Value Asli tetap
+        }
+
+    </script>
+</body>
+</html>

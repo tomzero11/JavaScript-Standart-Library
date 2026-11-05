@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Proxy
+        => Proxy merupakan Fitur yang digunakan sebagai Walil sebuah Data
+        => Dengan menggunakan Proxy semua Interaksi ke data akan selalu melalui Proxy terlebih dahulu
+        => Dengan ini kita bisa melakukan apapun sebelum Interaksi dilakukan ke data yang dituju
+        */ 
+
+        /*
+            Proxy Handler
+        => Pembuatan Proxy perlu menggunakan Handler dimana dalam Handler kita bisa membuat Function yang dimanakan Interceptor
+            Yang digunakan ketika mengambil data atau mengubah data ke Target
+        => Untuk membuat Proxy kita bisa menggunakan new Proxy(targer, handler)
+        */ 
+
+        /*
+            Interceptor
+        => Interceptor adalah Function yang akan selalu di panggil untuk pertama kali ketika ingin mengakses data Interceptor 
+            Ibarat nya seperti Satpam sebuah data Boleh di akses atau di tolak
+        => Jika boleh di akses kita bisa mengambil atau merubah Data 
+        => Jika di tolak maka tidak dapat melakukan apa-apa
+        */ 
+
+        /*
+            Proxy dan Handler 
+        => Saat kita mengubah data Proxy secara otomatis data akan di kirim ke target melalui handler 
+            dengan memanggil Function set(targer, property, value)
+        => Saat kita menggambil data Proxy, Secara otomatis data akan di ambil dari Target melalui handler 
+            dengan memanggil function get(targer, property)
+        => Artinya jika kita ingin melakukan sesuatu sebelum dan setelahnya, bisa dilakukan di Handler, seperti contoh
+            Menambahkan console.log() sebagai informasi bahwa Data di akses atau di rubah atau function yang lain di dalam 
+            Handler 
+        */ 
+
+        {
+            // Contoh 
+            const target = {}
+
+            const handler = {
+                get : function(target, property) {
+                    console.log(`Access property : ${property}`)
+                    return target[property]
+                },
+                set : function(target, property, value) {
+                    console.log(`Change porperty ${property} : ${value}`)
+                    
+                    if (value !== null && value !== undefined) {
+                        target[property] = value
+                    } else {
+                        target[property] = "" // Jika value nya di set data kosong (Undefined) dan Null maka di rubah menjadi String Kosong 
+                    }
+                }
+            }
+
+            const proxy = new Proxy(target, handler)
+            proxy.firstName = "Eko"
+            proxy.lastName = undefined
+
+            console.log(proxy.firstName)
+            console.log(proxy.lastName)
+            console.log(target)
+        }
+
+    </script>
+</body>
+</html>

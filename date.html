@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Date
+        => JavaScript memiliki type data untuk representasi waktu dan tanggal Yaitu Date
+        => Date merupakan representasi milisecond atau dikenal dengan Epoch & Unix Timestamp
+        */ 
+
+        {
+            /*
+            Membuat Object Data
+            => Untuk membuat object Data, kita bisa menggunakan kata kunci new Date(), dimana terdapat Constructor Parameter : 
+                -> new Date(), digunakan date saat ini 
+                -> new Date(year, month, date), membuat date dengan tanggal
+                -> new Date(year, month, date, hour?, minute?, second?, milis?) membuat date dengan parameter sampai milisecond 
+                    tanda ? adalah optional
+                -> new Date(timestamp), membuat date dari epoch atau unix timestamp
+            */ 
+
+            // Contoh Object Date
+            const date = new Date() // membuat date saat ini
+            console.log(date)
+
+            const date1 = new Date(2026, 10, 8) // membuat date yang kita atur
+            console.log(date1)
+
+            const date2 = new Date(2026, 10, 8, 21, 39, 0, 0) // membuat date yang di atur sampai Milisecond
+            console.log(date2)
+
+            const date4 = new Date(1791470466548) //Unix Timestamp
+            console.log(date4)
+        }
+
+        {
+            /*
+                Epoch dan Unix Timestamp
+            => Dalam menggunakan type data Waktu, biasanya disemua bahasa pemrogrman akan mendukung
+                yang namanya Epoch dan Unix Timestamp
+            => Untuk mendapatkan waktu saat ini dalam Epoch dan Uniz Timestamp, kita bisa menggunakan
+                Date.now()
+            => Untuk mengubah dari Object date Ke Epoch dan Unix Time Stamp kita bisa menggunakan 
+                getTime()
+            */ 
+            
+            // Contoh
+            const dateNow = Date.now() // Mendapatkan Waktu Saat ini dalam bentuk TimeStamp
+            console.log(dateNow)
+
+            const dateUnix = new Date(dateNow)
+            console.log(dateUnix.getTime())
+
+        }
+
+        {
+
+            /*
+                Parsing Date
+            => Kita juga bisa melakukan Parsing membuat date dari String menggunakan method Date.parse(value)
+                -> Format String harus YYYY-MM-DDTHH:mm:ss:sssZ
+                    (YYYY : Tahun)
+                    (MM : Bulan)
+                    (DD : Tanggal)
+                    (HH : Jam)
+                    (mm : menit)
+                    (ss : Detik)
+                    (sss : milisecond)
+                    (Z : Zone / Negara)
+            => Hasol parsing adalah Unix Timestamp, bukan Object Date (Berupa Number)
+            */ 
+
+            const time = Date.parse("2026-10-10T21:58")
+            console.log(time)
+
+            const dateNow = new Date(time)
+            console.log(dateNow)
+        }
+
+        {
+            /*
+                Date Getter dan Setter
+            => Date juga memiliki banyak sekali method untuk mendapatkan informasi Date
+                dan juga menugabah Date, atau Istilahnya adalah Getter dan Setter
+            */ 
+
+            // Contoh 
+            const time = new Date() // Waktu seakrang atau Saat ini
+
+            console.log(time.getFullYear())
+            console.log(time.getMonth())
+            console.log(time.getDay())
+            console.log(time.getHours())
+            console.log(time.getMinutes())
+            console.log(time.getSeconds())
+            console.log(time.getMilliseconds())
+            console.log(time.getTimezoneOffset())
+        }
+
+        
+
+    </script>
+</body>
+</html>

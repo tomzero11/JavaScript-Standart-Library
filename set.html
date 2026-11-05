@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Set 
+        => Set merupakan implementasi dari struktur data yang berisikan data-data Unique
+        => Set mirip seperti Array, hanya saja isi datanya selalu Unique
+        => Jika kita menambahkan data yang sama, maka data hanya akan di terima satu saja
+        => Set mengimplementasikan Kontrak iterable sehingga nisa di iterasi secara default
+        */ 
+
+        /*
+            Set Instance Method 
+            Method & Property                   Keterangan
+        => Size                   :       mengetahui panjang Set
+        => add(value)             :       Menambah data ke Set 
+        => has(value)             :       Mengecek apakah Set memiliki value
+        => delete(value)          :       Menghapus value dari Set 
+        => forEach(value =>)      :       Melakukan iterasi 
+        */ 
+
+        /*
+            Ada Istilah Entries di Set
+        => Entries adalah Pasangan antara Key dan Value di Map
+        */
+
+        const set = new Set()
+        set.add("Mamad")
+        set.add("Mamad")
+        set.add("Kurniawan")
+        set.add("Juned")
+        set.add("Oto")
+
+        console.log(set)
+        set.forEach((value) => console.log(`${value}`)) 
+
+
+    </script>
+</body>
+</html>

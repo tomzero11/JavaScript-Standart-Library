@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+<body>
+    <script>
+
+        /*  
+            String :    
+        => String adalah type data yang digunakan untuk menyimpan karakter atau teks
+        */ 
+
+        /*
+            String Instance Method dan Properties
+        => Cara mengaksesnya Panggil Varible atau Object atau Instance dari String
+        => String sangat mundah di JavaScript seperti mengubah menjadi lowecase, UPPERCASE, 
+            memotong string menjadi sebuah Data Array
+        */ 
+
+        /*
+            Catatan : 
+        => Instance Method String akan menciptakan String baru atau return String baru 
+        => Hampir semua String Instance Method akan menciptakan Data String Baru sehingga alue dati data aslinya tidak akan berubah 
+        => untuk Nilai Variable atau instance String nya tidak akan berubah 
+        */ 
+
+        // Contoh String Instance Method
+        const name = "Mamad Kusnandar Ridwan"
+        console.log(name.length) // Menghitung Panjang karakter di String Spasi Juga di hitung Karakter
+        console.log(name.toLowerCase()) // Menconversi menjadi huruf kecil semua (Menciptakan data String Baru)
+        console.log(name.toUpperCase()) // Menconversi menjadi Huruf Besar Semua  (Menciptakan data String Beru )
+        console.log(name.split(" ")) // Memecah String menjadi type data Array (Menciptakan Data Array String Baru)
+        console.log(name) // Value data aslinya tidak akan berubah 
+
+        const inputData = "    Input data      "
+        console.log(inputData.trim()) // Menghapus karakter spasi di kiri dan kanan (Menciptakan data String Baru)
+        console.log(inputData) // Value data aslinya tidak akan berubah 
+    </script>   
+</body>
+</html>

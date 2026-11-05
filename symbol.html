@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sysmbol</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Sysmbol
+        => Symbol merupakan type Data yang digaransi akan selalu Unique setiap kali membuat Sysmbol
+        => Symbol kadang banyak digunakan untuk membuat Key pada Object 
+        */ 
+
+        // Contoh String biasa Hasil nya True
+        const name1 = "firstName"
+        const name2 = "firstName"
+        console.log(name1 === name2) // True 
+
+        // Sedangkan Symbol False Karena Symbol Selalu Unique untuk setiap membuat Symbol
+        const person1 = Symbol("firstName") // Ibarat firstName itu adalah sebuah Deskripsi
+        const person2 = Symbol("firstName") // Walaupun Deskripsi nya sama itu Tetap beda
+        console.log(person1 === person2) // False karena Unique artinya Tidak sama 
+
+        {
+                // Cara Pertama Sysmbol
+            const firstName = Symbol("firstName") // 
+            const lastName = Symbol("lastName")
+            console.log(firstName === lastName) // false
+
+            // Memasukkan data ke dalam Object
+            const person = {} // Awal Object kosong
+            person[firstName] = "Kurniawan"
+            person[lastName] = "Malik"
+
+            console.log(person)
+            console.log(person[firstName]) // Ambil data Object
+            console.log(person[lastName]) // Ambil data Object 
+
+        }
+
+        /*
+            Sysmbol For 
+        => Kadang agak sulit untuk membuat Symbol harus selalu menggunakan Variable
+        => Pembuatan Sysmbol juga bisa menggunakan Static Method Sysmbol.for(key)
+        => Jika kita menggunakan Key yang sama, Sysmbol yang akan selalu dikembalikan
+        */ 
+
+        {
+            // Cara Kedua Sysmbol For 
+        const person = {}
+        person[Symbol.for("firstName")] = "Kurniawan"
+        person[Symbol.for("lastName")] = "Malik"
+        
+        console.log(person)
+        console.log(person[Symbol.for("firstName")])
+        console.log(person[Symbol.for("lastName")])
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Expression</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Regular Expression
+        => RegExp merupakan implementasi dari Regular Expression di JavaScript
+        => Regular Expression adalah fitur untuk mencari text dengan pola 
+        => Membuat Regular Expression bida di lakukan dengan dua cara, yaitu menggunakan
+            Literal Notation atau membuat Object RegExp
+        => regExp Mencarai dalam bentuk String , type data Array String, Object, Atau String Text
+        */ 
+
+        {
+            // Cara Membuat RegExp
+            // Cara Pertama
+            const regExp = /Mamd/
+            // Cara Kedua
+            const regExp2 = new RegExp("Mamad")
+            const regExp3 = new RegExp(/Mamad/)
+        }
+
+        /*
+            RegExp Instance Method 
+            Instance Method                             Keterangan
+        => exec(value) : return result         =     Eksekusi RegExp, Jika menemukan data sesuai pola, maka kembalikan result nya, jika tidak ada maka Null
+        => test(value) : return boolean        =     Eksekusi Regex, jika menemukan data sesuai pola maka return true, jika tidak menemukan maka return false
+        */ 
+
+        {   
+            // Contoh mencari Type Data String
+            const name = "Maman Abdul Rahman"
+            // Cara Pertama Pakai Literal Notation
+            const result = /Abdul/ // Huruf besar kecil nya harus sama, jika tidak hasil nya akan Null
+            console.log(result.exec(name)) // Memberikan Hasil Index 
+            console.log(result.test(name)) // Mengembalikan nilai booelan true (berarti Abdul ada di data String name)
+
+            // Contoh mencari di Type Data Array String 
+            const dataName = ["Maman", "Abdul", "Rahman"]
+            // Cara dua pakai Object RegExp
+            const resultArray = new RegExp(/Abdul/) // Huruf besar kecil nya harus sama, jika tidak hasil nya akan Null
+
+            console.log(resultArray.exec(dataName))
+            console.log(resultArray.test(dataName))
+        }
+
+        /*
+            RegExp Modifier
+        =>  RegExp Memiliki modifier untuk mengubah sifat cara pencarian
+                    Modifier                Keterangan
+            -> i              :       Regex mencari Incase Sensitive (tidak peduli hurus besar kecil nya)
+            -> g              :       Pencarian dilakukan secara Global, secara default setelah menemukan data pencarian akan berhenti 
+            -> m              :       MultiLine, Pencarian dilakukan di tiap Baris (Enter)
+        */ 
+
+        {
+            // Contoh Modifier i (Incase Sensitive tidak peduli hurus bersar kecil)
+            const dataName = ["Maman", "Abdul", "Rahman"]
+            // Cara dua pakai Object RegExp
+            const resultArray = new RegExp(/rahman/ , "i") // Tidak peduli hurus nya sama atau tidak yang penting ada Modifier i
+            console.log("adasdadaadasdasdas")
+            console.log(resultArray.exec(dataName))
+            console.log(resultArray.test(dataName))
+        }
+
+        {
+            // Contoh Modifier g (dia akan berhenti jika menemukan data yang paling terakhir Cocok untuk perulangan)
+            const nameEmployee = ["Maman Kurninawan", "Kurniawan Wicaksono", "Joko Maman"]
+            const regExpEmployee = new RegExp(/maman/, "ig") // Gabungan antara i (Incase Sensitif) dan G (Global) secara otomatis akan berhenti jiak menemukan data paling terakhir
+            // Jika tidak pakai Modirier g (Global) diakan Looping terus karena hasil nya tidak Null
+            let result
+            while ((result = regExpEmployee.exec(nameEmployee)) !== null) {
+                console.log(result)
+            }
+            result = regExpEmployee.test(nameEmployee)
+            console.log(result)
+
+        }
+
+        /*
+            RegExp di String 
+        => Di JavaScript type data String memiliki Instance Method yang dapat memanfaatkan RegEpx
+            Untuk melakukan pencarian 
+            
+            Method String                                   Keterangan
+            -> match(regex) : return Array          =   Mencari semua data yang sesuai dengan RegExp
+            -> search(regex) : return index         =   Mencari Index data yang sesuai dengan RegExp
+            -> replace(regex, value)                =   Mengubah data dengan value baru yang sesuai dengan RegExp
+            -> replaceAll(regex, value)             =   Mengubah semua data baru dengan value yang sesuai RegExp
+            -> split(regex) : return Array          =   Memotong string dengan RegExp
+        */ 
+
+        {
+            // Menciptakan String Baru 
+            // Contoh RegExp di Method String 
+            const fullName = "Maman Abdul Rahman"
+            let searchName = fullName
+            searchName = fullName.match("Abdul")  // Mencari Value dari RegExp menghasilkan Data Array
+            console.log(searchName)
+            searchName = fullName.search("Abdul")   // Mencari Value dari RegExp menghasilkan Array Index
+            console.log(searchName)
+            searchName = fullName.replace("rahman", "mamad" / "i") // Merubah RegExp "Rahman" menjadi "Mamad"
+            console.log(searchName)
+            searchName = fullName.split(" ") // Memotong String menjadi Array
+            console.log(searchName)
+            console.log(fullName)
+
+        }
+
+
+    </script>
+</body>
+</html>
